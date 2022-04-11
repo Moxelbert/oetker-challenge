@@ -16,3 +16,19 @@ thanks for taking the time checking my code. It works as follows:
 Optional: there is a Unittest for the class DataCleansing. At the moment, it is rather basic. It tests, that the data_cleansing method 
           in fact capitalizes the first character of column first_name. Unittests can be combined to Coverage in order to check how much
           of the overall code is covered by tests. Instead of running them manually, they can be part of a CI/CD pipeline.
+          
+How can the code be run? ==> Containerized via Airflow (you will need Docker installed on your machine)
+
+1. I used the official Airflow docker-compose.yaml: https://github.com/apache/airflow/blob/main/docs/apache-airflow/start/docker-compose.yaml
+Note: 
+    - add the following code under x-airflow-common/volumes: - /var/run/docker.sock:/var/run/docker.sock
+    - make sure the user under x-airflow-common/user is permitted to run docker
+
+2. Open a terminal, go the directory where the yaml file is stored and enter run "docker-compose up airflow-init". Afterwards, run "docker-compose up".
+3. Check localhost 8080 for the UI. PW and USER are "airflow". 
+4. To copy Dags into Airflow, do the following:
+    - in the terminal, type "docker ps". It will return a list of containers 
+    - Take the id of the container in which the webserver runs and use command "docker cp test_dag.py <container-id>:/opt/airflow/dags" 
+    - Now the dag should be visible in the UI
+5. Unpause the DAG and trigger it
+ 
