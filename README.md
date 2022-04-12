@@ -1,8 +1,8 @@
 Dear reviewer,
 thanks for taking the time checking my code. It works as follows:
 1. main.py is the entry-point. it imports Classes/functions from the connections- & transformation folders 
-2. In main.py, a Spark Session is generated. It is configured with a MySQL JDBC driver that enables Spark to write and read data from MySQL databases
-3. In a next step, the script calls function get_datasets() from connection/api_con.py, passing the API endpoint as an argument
+2. In main.py a Spark Session is generated. It is configured with a MySQL JDBC driver that enables Spark to write and read data from MySQL databases
+3. The script calls function get_datasets() from connection/api_con.py, passing the API endpoint as an argument
 4. The response from the API is stored locally as JSON file (this would not be necessary for the next steps, but was a requirement in the briefing)
 5. Next, the JSON file is read into a Spark dataframe
 6. The dataframe is passed as an argument to the class method cleanse_df (imported from transformations/data_cleansing.py). The cleansing does the following:
@@ -19,11 +19,11 @@ Optional: there is a Unittest for the class DataCleansing. At the moment, it is 
           
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-How can the code be run? ==> Containerized via Airflow (you will need Docker installed on your machine) 
-I created a Docker Image of the code here: https://hub.docker.com/repository/docker/moxelpeterle/test_repo1
+How can the code be run? ==> Containerized via Airflow (you will need Docker installed on your machine).
+I created a Docker Image of the code here: https://hub.docker.com/repository/docker/moxelpeterle/test_repo1.
 The only code that you will need from this repo is etl_dag.py from the dags-folder. Store this file somewhere on your local machine.
 
-1. I used the official Airflow docker-compose.yaml: https://github.com/apache/airflow/blob/main/docs/apache-airflow/start/docker-compose.yaml
+1. I used the official Airflow docker-compose.yaml: https://github.com/apache/airflow/blob/main/docs/apache-airflow/start/docker-compose.yaml.
 Note: 
     - add the following code under x-airflow-common/volumes: - /var/run/docker.sock:/var/run/docker.sock
     - make sure the user under x-airflow-common/user is permitted to run docker
