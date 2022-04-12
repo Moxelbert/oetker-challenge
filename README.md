@@ -22,10 +22,11 @@ Optional: there is a Unittest for the class DataCleansing. At the moment, it is 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 How can the code be run? ==> Containerized via Airflow (you will need Docker installed on your machine).
-I created a Docker Image of the code here: https://hub.docker.com/repository/docker/moxelpeterle/test_repo1. Please store this on your local machine.
-The only code that you will need from this repo is etl_dag.py from the dags-folder. Store this file somewhere on your machine too.
+I created a Docker Image of the code here: https://hub.docker.com/repository/docker/moxelpeterle/test_repo1. 
+The only code that you will need from this repo is etl_dag.py from the dags-folder. Store this file somewhere on your machine.
 
-1. I used the official Airflow docker-compose.yaml: https://github.com/apache/airflow/blob/main/docs/apache-airflow/start/docker-compose.yaml.
+1. Please store the official Airflow docker-compose.yaml on your machine: 
+    https://github.com/apache/airflow/blob/main/docs/apache-airflow/start/docker-compose.yaml
 Note: 
     - add the following code under x-airflow-common/volumes: - /var/run/docker.sock:/var/run/docker.sock
     - make sure the user under x-airflow-common/user is permitted to run docker on your local machine (in doubt use root)
