@@ -26,7 +26,7 @@ The only code that you will need from this repo is etl_dag.py from the dags-fold
 1. I used the official Airflow docker-compose.yaml: https://github.com/apache/airflow/blob/main/docs/apache-airflow/start/docker-compose.yaml.
 Note: 
     - add the following code under x-airflow-common/volumes: - /var/run/docker.sock:/var/run/docker.sock
-    - make sure the user under x-airflow-common/user is permitted to run docker
+    - make sure the user under x-airflow-common/user is permitted to run docker on your local machine (in doubt use root)
 
 2. Open a terminal, go to the directory where the yaml file is stored and run "docker-compose up airflow-init". Afterwards, run "docker-compose up"
 3. Check localhost 8080 for the UI. PW and USER are "airflow"
