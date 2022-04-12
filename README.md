@@ -14,8 +14,8 @@ thanks for taking the time checking my code. It works as follows:
 8. Lastly, the script instantiates Class MySql and uses its method to store both results in a MySql database
 
 Optional: there is a Unittest for the class DataCleansing. At the moment, it is rather basic. It tests, that the data_cleansing method 
-          in fact capitalizes the first character of column first_name. Unittests can be combined to Coverage in order to check how much
-          of the overall code is covered by tests. Instead of running them manually, they can be part of a CI/CD pipeline.
+          in fact capitalizes the first character of column first_name. Unittests can be combined with the Coverage library in order to check how much
+          of the overall code is covered by tests. Instead of running them manually, they can be part of a CI/CD pipeline, so everytime a new build is triggered, these           tests are run
           
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
