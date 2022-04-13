@@ -36,7 +36,7 @@ Note:
 4. Check localhost 8080 for the UI. PW and USER are "airflow"
 5. To copy Dags into Airflow, do the following:
     - in a second terminal, type "docker ps". It will return a list of containers. Copy the id of the container in which the webserver runs
-    - Go to the directory where you stored etl_dag.py and use command "docker cp etl_dag.py <container-id>:/opt/airflow/dags" 
+    - Go to the directory where you stored etl_dag.py and use command "docker cp etl_dag.py container-id:/opt/airflow/dags" 
     - Now the dag should be visible in the UI
 6. Unpause the DAG and trigger it
 7. You can check the logs in order to get a preview of the transformed data. If you would prefer to query the MySQL database yourself, I am happy to give
